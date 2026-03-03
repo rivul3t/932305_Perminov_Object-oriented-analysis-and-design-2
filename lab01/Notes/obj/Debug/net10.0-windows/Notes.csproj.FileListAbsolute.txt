@@ -1,0 +1,14 @@
+C:\Users\nperm\Desktop\ooap\sem2\Notes\obj\Debug\net10.0-windows\Notes.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nperm\Desktop\ooap\sem2\Notes\obj\Debug\net10.0-windows\Notes.AssemblyInfoInputs.cache
+C:\Users\nperm\Desktop\ooap\sem2\Notes\obj\Debug\net10.0-windows\Notes.AssemblyInfo.cs
+C:\Users\nperm\Desktop\ooap\sem2\Notes\obj\Debug\net10.0-windows\Notes.csproj.CoreCompileInputs.cache
+C:\Users\nperm\Desktop\ooap\sem2\Notes\bin\Debug\net10.0-windows\Notes.exe
+C:\Users\nperm\Desktop\ooap\sem2\Notes\bin\Debug\net10.0-windows\Notes.deps.json
+C:\Users\nperm\Desktop\ooap\sem2\Notes\bin\Debug\net10.0-windows\Notes.runtimeconfig.json
+C:\Users\nperm\Desktop\ooap\sem2\Notes\bin\Debug\net10.0-windows\Notes.dll
+C:\Users\nperm\Desktop\ooap\sem2\Notes\bin\Debug\net10.0-windows\Notes.pdb
+C:\Users\nperm\Desktop\ooap\sem2\Notes\obj\Debug\net10.0-windows\Notes.dll
+C:\Users\nperm\Desktop\ooap\sem2\Notes\obj\Debug\net10.0-windows\refint\Notes.dll
+C:\Users\nperm\Desktop\ooap\sem2\Notes\obj\Debug\net10.0-windows\Notes.pdb
+C:\Users\nperm\Desktop\ooap\sem2\Notes\obj\Debug\net10.0-windows\Notes.genruntimeconfig.cache
+C:\Users\nperm\Desktop\ooap\sem2\Notes\obj\Debug\net10.0-windows\ref\Notes.dll
