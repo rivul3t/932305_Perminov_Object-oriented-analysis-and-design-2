@@ -1,8 +1,17 @@
 from dotenv import load_dotenv
+from services.discord_api import DiscordAPI
+from services.telegram_api import TelegramAPI
+from services.vk_api import VKAPI
+
+from adapters.discord import DiscordAdapter
+from adapters.telegram import TelegramAdapter
+from adapters.vk import VKAdapter
+
+import os
 
 load_dotenv()
 
-services = {
+adapters = {
         "Telegram": TelegramAdapter(TelegramAPI(
             os.getenv("TELEGRAM_BOT_TOKEN"),
             os.getenv("TELEGRAM_CHAT_ID")

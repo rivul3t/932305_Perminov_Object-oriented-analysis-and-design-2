@@ -4,7 +4,7 @@ import os
 from tkinter import messagebox, simpledialog
 
 from core.manager import NotificationManager
-from services.all_services import services
+from adapters.all_adapters import adapters
 from utils.logger import logger
 
 
@@ -32,7 +32,7 @@ class NotificationApp:
     def send(self):
         message = self.message_entry.get()
         service_name = self.service_var.get()
-        self.manager.set_service(services[service_name])
+        self.manager.set_service(adapters[service_name])
         run_async(self.manager.notify(message))
         messagebox.showinfo("Sent", f"Message sent via {service_name}")
 
