@@ -32,9 +32,26 @@ class NotificationApp:
     def send(self):
         message = self.message_entry.get()
         service_name = self.service_var.get()
+
         self.manager.set_service(adapters[service_name])
-        run_async(self.manager.notify(message))
-        messagebox.showinfo("Sent", f"Message sent via {service_name}")
+        asyncio.create_task(self.send_async(message))
+
+    async def send_async(self, message):
+        result = await self.manager.notify(message)
+        self.root.after(0, self.show_result, result)
+
+    def show_result(self, result):
+        if result["status"] == "success":
+            messagebox.showinfo(
+                "Success",
+                f"{result['service']} OK\nmessage_id: {result['message_id'] or 'N/A'}"
+            )
+        else:
+            messagebox.showerror(
+                "Error",
+                f"{result['service']} FAILED"
+            )
+
 
 
 async def main():

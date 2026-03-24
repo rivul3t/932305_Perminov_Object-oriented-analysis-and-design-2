@@ -1,11 +1,13 @@
 import asyncio
 import tkinter as tk
-from tkinter import messagebox, simpledialog
+from tkinter import messagebox
+import os
 
 from services.telegram_api import TelegramAPI
 from services.discord_api import DiscordAPI
 from services.vk_api import VKAPI
 from utils.logger import logger
+
 
 def run_async(coro):
     asyncio.create_task(coro)
@@ -65,32 +67,95 @@ class NotificationApp:
             messagebox.showerror("Error", "Unknown service")
             return
 
-        messagebox.showinfo("Sent", f"Message sent via {service_name}")
-
     async def send_telegram(self, api: TelegramAPI, message: str):
         try:
-            await api.send_message(message)
-            logger.info(f"Telegram: {message}")
+            response = await api.send_message(message)
+
+            if response and response.get("ok"):
+                message_id = response.get("result", {}).get("message_id")
+                logger.info(f"Telegram OK: {message_id}")
+
+                self.root.after(0, lambda: messagebox.showinfo(
+                    "Success",
+                    f"Telegram OK\nID: {message_id or 'N/A'}"
+                ))
+            else:
+                logger.error(f"Telegram failed: {response}")
+
+                self.root.after(0, lambda: messagebox.showerror(
+                    "Error",
+                    "Telegram FAILED"
+                ))
+
         except Exception as e:
             logger.error(f"Telegram error: {e}")
 
+            self.root.after(0, lambda: messagebox.showerror(
+                "Error",
+                f"Telegram error: {e}"
+            ))
+
     async def send_discord(self, api: DiscordAPI, message: str):
         try:
-            await api.send_channel_message(message)
-            logger.info(f"Discord: {message}")
+            status_code = await api.send_channel_message(message)
+
+            if status_code == 204:
+                logger.info("Discord OK")
+
+                self.root.after(0, lambda: messagebox.showinfo(
+                    "Success",
+                    "Discord OK\nID: N/A"
+                ))
+            else:
+                logger.error(f"Discord failed: {status_code}")
+
+                self.root.after(0, lambda: messagebox.showerror(
+                    "Error",
+                    f"Discord FAILED (code {status_code})"
+                ))
+
         except Exception as e:
             logger.error(f"Discord error: {e}")
 
+            self.root.after(0, lambda: messagebox.showerror(
+                "Error",
+                f"Discord error: {e}"
+            ))
+
     async def send_vk(self, api: VKAPI, message: str):
         try:
-            await api.send_message(message)
-            logger.info(f"VK: {message}")
+            response = await api.send_message(message)
+
+            if response and "response" in response:
+                message_id = response["response"]
+                logger.info(f"VK OK: {message_id}")
+
+                self.root.after(0, lambda: messagebox.showinfo(
+                    "Success",
+                    f"VK OK\nID: {message_id}"
+                ))
+            else:
+                error_msg = response.get("error", {}).get("error_msg") if response else "Unknown error"
+                logger.error(f"VK failed: {error_msg}")
+
+                self.root.after(0, lambda: messagebox.showerror(
+                    "Error",
+                    f"VK FAILED\n{error_msg}"
+                ))
+
         except Exception as e:
             logger.error(f"VK error: {e}")
+
+            self.root.after(0, lambda: messagebox.showerror(
+                "Error",
+                f"VK error: {e}"
+            ))
+
 
 async def main():
     root = tk.Tk()
     app = NotificationApp(root)
+
     while True:
         root.update()
         await asyncio.sleep(0.01)

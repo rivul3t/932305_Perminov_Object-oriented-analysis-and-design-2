@@ -8,4 +8,4 @@ class DiscordAPI:
         payload = {"content": text}
         async with aiohttp.ClientSession() as session:
             async with session.post(self.webhook_url, json=payload) as resp:
-                await resp.text()
+                return await resp.json()

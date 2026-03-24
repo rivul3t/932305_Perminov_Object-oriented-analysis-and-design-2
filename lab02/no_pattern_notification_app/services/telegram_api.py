@@ -10,4 +10,4 @@ class TelegramAPI:
         payload = {"chat_id": self.chat_id, "text": text}
         async with aiohttp.ClientSession() as session:
             async with session.post(url, json=payload) as resp:
-                await resp.text()
+                await resp.json()

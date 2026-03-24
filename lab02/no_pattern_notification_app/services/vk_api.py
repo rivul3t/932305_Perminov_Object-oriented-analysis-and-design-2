@@ -17,4 +17,4 @@ class VKAPI:
         }
         async with aiohttp.ClientSession() as session:
             async with session.post(url, data=params) as resp:
-                await resp.text()
+                await resp.json()
