@@ -1,0 +1,2 @@
+set(__QT_DEPLOY_TARGET_FileManagerVisitor_FILE /home/rivulet/unik/ooap/932305_Perminov_Object-oriented-analysis-and-design-2/lab03/file_manager/FileManagerVisitor)
+set(__QT_DEPLOY_TARGET_FileManagerVisitor_TYPE EXECUTABLE)

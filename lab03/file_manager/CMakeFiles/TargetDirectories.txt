@@ -1,0 +1,5 @@
+/home/rivulet/unik/ooap/932305_Perminov_Object-oriented-analysis-and-design-2/lab03/file_manager/CMakeFiles/FileManagerVisitor.dir
+/home/rivulet/unik/ooap/932305_Perminov_Object-oriented-analysis-and-design-2/lab03/file_manager/CMakeFiles/edit_cache.dir
+/home/rivulet/unik/ooap/932305_Perminov_Object-oriented-analysis-and-design-2/lab03/file_manager/CMakeFiles/rebuild_cache.dir
+/home/rivulet/unik/ooap/932305_Perminov_Object-oriented-analysis-and-design-2/lab03/file_manager/CMakeFiles/FileManagerVisitor_autogen_timestamp_deps.dir
+/home/rivulet/unik/ooap/932305_Perminov_Object-oriented-analysis-and-design-2/lab03/file_manager/CMakeFiles/FileManagerVisitor_autogen.dir
